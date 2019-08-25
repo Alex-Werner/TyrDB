@@ -38,7 +38,7 @@ class TyrDB {
 
     const self = this;
     setTimeout(async () => {
-      if (self.autoInitialize) {
+      if (self.options.autoInitialize) {
         await self.initialize();
       }
       this.emit(new Event('ready'));
