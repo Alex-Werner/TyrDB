@@ -48,6 +48,30 @@ db.on('ready',()=>{});
 
 - ready
 
+## Adapters 
+
+- `MemoryAdapter` : Default adapter. Set Store inMemory. Limited by heap memory available (good enough).
+```js
+const {MemoryAdapter} = require('tyrdb/adapters')
+const adapter = new MemoryAdapter();
+const client = new TyrDB({adapter});
+```
+
+
+- `FsAdapter` : FileSystem adapter. Requires a path. Each document is a file.
+```js
+const {FsAdapter} = require('tyrdb/adapters')
+const adapter = new MemoryAdapter();
+const client = new TyrDB({path:'.db/mydbpath',adapter});
+```
+
+- `FsOptimizedAdapter` : Similar to `FsAdapter` but with optimized file system architecture (TODO)
+```js
+const {FsOptimizedAdapter} = require('tyrdb/adapters')
+const adapter = new MemoryAdapter();
+const client = new TyrDB({path:'.db/mydbpath',adapter});
+```
+
 # Create Collection
 
 ```
