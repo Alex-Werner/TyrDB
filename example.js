@@ -3,6 +3,6 @@ const {MemoryAdapter} = require('./adapters')
 
 const adapter = new MemoryAdapter();
 
-const client = new TyrDB();
+const client = new TyrDB({adapter});
 
 
