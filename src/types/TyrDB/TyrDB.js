@@ -5,7 +5,6 @@ const Event = require('../Event');
 const is = require('../../utils/is')
 const defaultProps = {
   path: '.db',
-  persistanceAdapter: new MemoryAdapter(),
   autoInitialize: true,
   autoConnect: true,
   databases: [],
@@ -15,7 +14,6 @@ class TyrDB {
   #emitter = new EventEmitter();
 
   emit(event, ...values) {
-    console.log('==Emit :', event)
     if (event.constructor.name === Event.name) {
       return this.#emitter.emit(event.name, event.payload);
     }
@@ -35,7 +33,7 @@ class TyrDB {
       isConnected: false,
       isConnecting: false
     }
-    this.persistanceAdapter = (props.adapter) ? props.adapter : defaultProps.persistanceAdapter;
+    this.persistanceAdapter = (props.adapter) ? props.adapter : new MemoryAdapter();
     this.databases = (props.databases) ? props.databases : defaultProps.databases;
 
     const self = this;

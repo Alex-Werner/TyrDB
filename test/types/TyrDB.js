@@ -6,7 +6,6 @@ describe('TyrDB - Class', () => {
   let tyr;
   it('should work', function () {
     tyr = new TyrDB();
-    expect(tyr.path).to.equal('.db')
     expect(tyr.persistanceAdapter).to.deep.equal(new MemoryAdapter())
     expect(tyr.databases).to.deep.equal([])
   });
