@@ -1,6 +1,6 @@
 {
   "name": "tyrdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fast in-memory database for node and browser",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Alex-Werner/TyrDB/issues"
+  },
+  "engines" : {
+    "node" : ">=12.0.0"
   },
   "homepage": "https://github.com/Alex-Werner/TyrDB#readme",
   "dependencies": {
