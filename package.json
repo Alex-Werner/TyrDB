@@ -1,0 +1,30 @@
+{
+  "name": "tyrdb",
+  "version": "1.0.0",
+  "description": "Fast in-memory database for node and browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-Werner/TyrDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-Werner/TyrDB/issues"
+  },
+  "homepage": "https://github.com/Alex-Werner/TyrDB#readme",
+  "dependencies": {
+    "bson-objectid": "^1.3.0",
+    "eventemitter2": "^5.0.1",
+    "graceful-fs": "^4.2.2",
+    "lodash": "^4.17.15",
+    "object-hash": "^1.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
