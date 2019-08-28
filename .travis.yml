@@ -1,0 +1,12 @@
+os: linux
+language: node_js
+node_js:
+  - "12"
+
+install:
+  - npm ci
+
+jobs:
+  include:
+    - stage: test
+      script: npm test
