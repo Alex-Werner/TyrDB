@@ -1,13 +1,17 @@
 const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
 const EventEmitter = require('eventemitter2').EventEmitter2;
 const Event = require('../Event');
+const pkgVersion = require('../../../package.json').version;
 
 const is = require('../../utils/is')
 const defaultProps = {
-  path: '.db',
-  autoInitialize: true,
-  autoConnect: true,
+  options:{
+    path: '.db',
+    autoInitialize: true,
+    autoConnect: true,
+  },
   databases: [],
+  databaseVersion: pkgVersion
 };
 
 class TyrDB {
@@ -25,9 +29,9 @@ class TyrDB {
   }
   constructor(props = {}) {
     this.options = {
-      path:(props.path) ? props.path : defaultProps.path,
-      autoInitialize :(!is.undef(props.autoInitialize)) ? props.autoInitialize : defaultProps.autoInitialize,
-      autoConnect:(!is.undef(props.autoConnect)) ? props.autoConnect : defaultProps.autoConnect,
+      path:(props.path) ? props.path : defaultProps.options.path,
+      autoInitialize :(!is.undef(props.autoInitialize)) ? props.autoInitialize : defaultProps.options.autoInitialize,
+      autoConnect:(!is.undef(props.autoConnect)) ? props.autoConnect : defaultProps.options.autoConnect,
     };
     this.state = {
       isConnected: false,
@@ -35,6 +39,7 @@ class TyrDB {
     }
     this.persistanceAdapter = (props.adapter) ? props.adapter : new MemoryAdapter();
     this.databases = (props.databases) ? props.databases : defaultProps.databases;
+    this.databaseVersion = (props.databaseVersion) ? props.databaseVersion : defaultProps.databaseVersion;
 
     const self = this;
     setTimeout(async () => {

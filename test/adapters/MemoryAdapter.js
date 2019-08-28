@@ -13,10 +13,10 @@ describe('MemoryAdapter - Within Tyr', ()=>{
     client.on('ready', async ()=>{
       const dbName = 'test_db';
 
-      await client.connect()
       expect(client.persistanceAdapter.store.databases).to.deep.equal({});
 
       const db = await client.db(dbName);
+      console.log(db);
       expect(db.constructor.name).to.equal('Database');
       expect(db.name).to.equal(dbName)
       expect(db.collection).to.be.a('function');
@@ -31,8 +31,8 @@ describe('MemoryAdapter - Within Tyr', ()=>{
 
 
       const colName = 'users';
-      const user = {name:"Obusco", age:28};
-      const users = await db.collection(colName);
+      const userPayload = {name:"Obusco", age:28};
+      const users = await db.collection(colName, {indices:['name']});
 
 
       expect(users.constructor.name).to.equal('Collection');
@@ -44,26 +44,28 @@ describe('MemoryAdapter - Within Tyr', ()=>{
 
       // Specific to TyrDb
       expect(client.databases[dbName].collections[colName].collection).to.deep.equal(users);
-      expect(client.databases[dbName].collections[colName].documents).to.deep.equal({});
+      expect(client.databases[dbName].collections[colName].collection.documents).to.deep.equal([]);
 
-      const inserted = await users.insert(user);
+      const inserted = await users.insert(userPayload);
 
       expect(inserted.result.length).to.equal(1);
-      const insertedUser = inserted.result[0]
-      expect(insertedUser.name).to.equal(user.name)
-      expect(insertedUser.age).to.equal(user.age)
-      expect(insertedUser._id.constructor.name).to.be.equal('ObjectID');
+      const user = inserted.result[0]
 
-      const hash = insertedUser._id;
-      expect(client.persistanceAdapter.store.databases[dbName].collections[colName].documents[hash].name).to.equal(user.name)
-      expect(client.persistanceAdapter.store.databases[dbName].collections[colName].documents[hash].age).to.equal(user.age)
+      expect(user.name).to.equal(userPayload.name)
+      expect(user.age).to.equal(userPayload.age)
+      expect(user._id.constructor.name).to.be.equal('ObjectID');
 
-      expect(client.databases[dbName].collections[colName].documents[hash]).to.deep.equal(['name','age']);
+      const hash = user._id;
+      expect(client.persistanceAdapter.store.databases[dbName].collections[colName].documents[hash].name).to.equal(userPayload.name)
+      expect(client.persistanceAdapter.store.databases[dbName].collections[colName].documents[hash].age).to.equal(userPayload.age)
+
+      console.log(JSON.stringify(client.databases[dbName].collections[colName].collection.documents[hash]))
+      expect(client.databases[dbName].collections[colName].collection.documents[hash]).to.deep.equal(user.export());
 
 
       // Find
       const findUser = await users.find({name:'Obusco'});
-      expect(findUser).to.deep.equal(insertedUser);
+      expect(findUser).to.deep.equal(user);
 
 
       // Update easy way

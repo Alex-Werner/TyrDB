@@ -8,8 +8,10 @@ class MemoryAdapter extends PersistanceAdapter {
   }
 };
 MemoryAdapter.prototype.connectAdapter = require('./methods/connectAdapter');
-MemoryAdapter.prototype.findOrCreateDatabase = require('./methods/findOrCreateDatabase');
-MemoryAdapter.prototype.findOrCreateCollection = require('./methods/findOrCreateCollection');
+MemoryAdapter.prototype.createCollection = require('./methods/createCollection');
+MemoryAdapter.prototype.createDatabase = require('./methods/createDatabase');
+MemoryAdapter.prototype.findCollection = require('./methods/findCollection');
+MemoryAdapter.prototype.findDatabase = require('./methods/findDatabase');
 MemoryAdapter.prototype.findOneDocumentInCollection = require('./methods/findOneDocumentInCollection');
 MemoryAdapter.prototype.insertOneDocumentToCollection = require('./methods/insertOneDocumentToCollection');
 module.exports = MemoryAdapter;

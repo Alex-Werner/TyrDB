@@ -47,6 +47,7 @@ db.on('ready',()=>{});
 ```
 
 - ready
+- initialized
 
 ## Adapters 
 
@@ -58,20 +59,25 @@ const client = new TyrDB({adapter});
 ```
 
 
-- `FsAdapter` : FileSystem adapter. Requires a path. Each document is a file.
+- `FsAdapter` : FileSystem adapter. Requires a path. (TODO)
 ```js
 const {FsAdapter} = require('tyrdb/adapters')
 const adapter = new MemoryAdapter();
 const client = new TyrDB({path:'.db/mydbpath',adapter});
 ```
 
-- `FsOptimizedAdapter` : Similar to `FsAdapter` but with optimized file system architecture (TODO)
+- `FsSemanticAdapter` : Similar to `FsAdapter` but with semantic file system architecture (Good for proto)
+State : For prototype only : We don't even have indexing there.
+
+
 ```js
-const {FsOptimizedAdapter} = require('tyrdb/adapters')
+const {FsSemanticAdapter} = require('tyrdb/adapters')
 const adapter = new MemoryAdapter();
 const client = new TyrDB({path:'.db/mydbpath',adapter});
 ```
 
+- `IndexedAdapter` : Persist in web browser indexed db storage
+- `LocalStorageAdapter` : Persist in web browser local storage
 # Create Collection
 
 ```
@@ -142,6 +148,12 @@ start();
 ```
 
 
+### Difference between .serialize() and .export()
+
+TyrDB by default do not hold any data, only refs and indexes. Data are handled by adapters.
+Therefore every element is caracterized by it's own metadata and data. 
+`.export()` fetches the metadata elements.
+`.serialize()` the json representation of the elements.
 
 ### 1-1 CRUD List with Mongodb-native 
 
@@ -164,3 +176,9 @@ start();
 - [] replaceOne
 - [] updateMany
 - [] updateOne
+
+
+## TODO 
+
+- [] indices
+- [] uniqueNames (for FS, we have a folder `uniques` and file per names, file contains list of sorted used value for this name);

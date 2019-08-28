@@ -3,7 +3,7 @@ const Event = require('../../Event');
 module.exports = async function connect() {
   if(!this.state.isConnected && !this.state.isConnecting){
     this.state.isConnecting = true;
-    await this.persistanceAdapter.connectAdapter(this.options.path);
+    await this.persistanceAdapter.connectAdapter(this);
     this.state.isConnected = true;
     this.state.isConnecting = false;
     this.emit(new Event('connected'));

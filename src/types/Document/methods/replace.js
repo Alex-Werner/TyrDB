@@ -1,4 +1,4 @@
 module.exports = async function replace(_replace){
-  this.deleteAllNonMetaProperties()
+  this.data = {};
   return this.update(_replace);
 }

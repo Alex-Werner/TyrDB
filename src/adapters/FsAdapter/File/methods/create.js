@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const jsonfile = require('jsonfile')
+const Directory = require('../../Directory/Directory')
+
 function stringify(obj, options) {
   let spaces;
   let EOL = '\n';
@@ -16,18 +19,17 @@ function stringify(obj, options) {
 }
 
 module.exports = async function create(p, data = '') {
+  console.log('Should create file', p)
   const self = this;
   return new Promise(async (res, rej) => {
-    await self.ensure(path.dirname(p));
+    await Directory.ensure(path.dirname(p));
     const exist = await this.exists(p);
-
     const write = (resolver, lock) => {
-      fs.writeFile(p, stringify(data), (err) => {
-        // if (lock) lock.release();
-        // else console.log('no lock?')
+      console.log(data, p)
+      jsonfile.writeFile(p, data, function (err) {
         if (err) return (err);
         resolver(true);
-      });
+      })
     };
 
     if (exist) {

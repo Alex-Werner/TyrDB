@@ -1,5 +1,6 @@
 const fs = require('fs');
-module.exports = async function append(p) {
+
+module.exports = async function read(p, options = {}) {
   const isFile = await this.exists(p);
   if (!isFile) throw new Error(`CannotReadFileNotFound({path: ${p}}`);
   return new Promise(async (res, rej) => {

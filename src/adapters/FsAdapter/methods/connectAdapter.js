@@ -1,5 +1,5 @@
 async function connectAdapter(tyrInstance){
-  this.setTyrInstance(tyrInstance);
+  throw new Error('Not implemented!');
 
 }
 module.exports = connectAdapter
