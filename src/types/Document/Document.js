@@ -1,4 +1,4 @@
-const ObjectID = require("bson-objectid");
+const ObjectID = require("../ObjectId/ObjectId");
 const {clone} = require("lodash");
 const getMetadataFromProps = require('./methods/private/getMetadataFromProps');
 const cleanPrivateProps = require('./methods/private/cleanPrivateProps');
@@ -6,9 +6,6 @@ const cleanPrivateProps = require('./methods/private/cleanPrivateProps');
 
 class Document {
   constructor(props = {}){
-    //FIXME : This is absolutely not a vaid ObjectID, it just return a hex representation of time, while it should be
-    // something like 5 bytes of times + random bytes + random coutner
-    // Let's not create another repo/project yet.
     this._id = ObjectID();
     this._meta = getMetadataFromProps(props);
     this.data = clone(cleanPrivateProps(props))
