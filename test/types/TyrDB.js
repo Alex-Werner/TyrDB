@@ -24,6 +24,8 @@ const myData = {
   }
 };
 
+const ids = [];
+
 describe('TyrDB - Class', () => {
   let tyr;
   it('should work', function (done) {
@@ -106,22 +108,40 @@ describe('TyrDB - Class', () => {
 
     expect(insertRes.result.length).to.equal(1);
     const doc = insertRes.result[0];
-    console.log(doc._fields)
-    expect(doc._fields).to.deep.equal(['name','myField']);
+    expect(doc._fields).to.deep.equal([
+          [ 'name', 3 ],
+          [ 'buffer', 7 ],
+          [ 'string', 3 ],
+          [ 'bool', 1 ],
+          [ 'null', 0 ],
+          [ 'undefined', 4 ],
+          [ 'array', 6 ],
+          [ 'object', 5 ],
+          [ 'number', 2 ],
+          [ 'float', 2 ],
+          [ 'otherStuff', 2 ],
+          [ 'myField', 5 ]
+        ]
+    );
     expect(doc.data).to.deep.equal(myData);
+    ids.push(doc._id.toString())
 
     expect(col.documents[doc._id]).to.deep.equal(doc.export());
     //todo : Should be a test of Document instead
     expect(Object.keys(doc.export())).to.deep.equal(['_id', '_meta', '_fields']);
   });
+  it('should be able to get a document', async function () {
+    const db = await tyr.db('db');
+    const col = await db.collection('col');
+    const doc = await col.get(ids[0]);
+    expect(doc.data).to.deep.equal(myData)
+  });
   it('should be able to find a document', async function () {
     const db = await tyr.db('db');
     const col = await db.collection('col');
     const doc = await col.find({'name': 'mydoc'});
-    const docFromObjectid = await col.find('5d6503f4173a0c4afea93686');
-    // console.log(col)
-    console.log(docFromObjectid)
-    console.log(doc)
-    // expect(doc.data).to.deep.equal(myData)
+    const docFromObjectid = await col.find({_id:ids[0]});
+    expect(doc.data).to.deep.equal(myData)
+    expect(docFromObjectid.data).to.deep.equal(myData)
   });
 });

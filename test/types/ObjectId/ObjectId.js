@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const ObjectId = require('../../../src/types/ObjectId/ObjectId');
+const ObjectId = require('../../../src/lib/ObjectId/ObjectId');
 describe('Type - ObjectId', () => {
   it('should generate a new value', function () {
     const oid = new ObjectId();

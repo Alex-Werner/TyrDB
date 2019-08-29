@@ -29,18 +29,19 @@
     "file",
     "storage",
     "local",
-    "embeddable"
+    "embeddable",
+    "portable db"
   ],
   "homepage": "https://github.com/Alex-Werner/TyrDB#readme",
   "dependencies": {
     "eventemitter2": "^5.0.1",
     "graceful-fs": "^4.2.2",
     "jsonfile": "^5.0.0",
-    "lodash": "^4.17.15",
-    "object-hash": "^1.3.1"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "faker": "^4.1.0",
     "mocha": "^6.2.0"
   }
 }

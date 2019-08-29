@@ -4,4 +4,4 @@ const tree = new SBTree();
 
 const document = new Document({name:'Alex', age:23})
 tree.insert(document)
-console.log(tree)
+// console.log(tree)

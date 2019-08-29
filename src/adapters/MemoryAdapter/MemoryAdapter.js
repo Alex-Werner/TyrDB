@@ -13,5 +13,6 @@ MemoryAdapter.prototype.createDatabase = require('./methods/createDatabase');
 MemoryAdapter.prototype.findCollection = require('./methods/findCollection');
 MemoryAdapter.prototype.findDatabase = require('./methods/findDatabase');
 MemoryAdapter.prototype.findOneDocumentInCollection = require('./methods/findOneDocumentInCollection');
+MemoryAdapter.prototype.findOneDocumentInCollectionByObjectId = require('./methods/findOneDocumentInCollectionByObjectId');
 MemoryAdapter.prototype.insertOneDocumentToCollection = require('./methods/insertOneDocumentToCollection');
 module.exports = MemoryAdapter;

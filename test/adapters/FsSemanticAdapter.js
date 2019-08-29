@@ -53,23 +53,23 @@ describe('FsSemanticAdapter - Within Tyr', ()=>{
 
       // Specific to TyrDb
       expect(client.databases[dbName].collections[colName].collection).to.deep.equal(users);
-      expect(client.databases[dbName].collections[colName].documents).to.deep.equal({});
+      expect(client.databases[dbName].collections[colName].collection.documents).to.deep.equal([]);
 
       const inserted = await users.insert(user);
 
       expect(inserted.result.length).to.equal(1);
       const insertedUser = inserted.result[0]
-      expect(insertedUser.name).to.equal(user.name)
-      expect(insertedUser.age).to.equal(user.age)
-      expect(insertedUser._id.constructor.name).to.be.equal('ObjectID');
+      expect(insertedUser.data.name).to.equal(user.name)
+      expect(insertedUser.data.age).to.equal(user.age)
+      expect(insertedUser._id.constructor.name).to.be.equal('ObjectId');
 
-      const hash = insertedUser._id;
+      const id = insertedUser._id.toString();
       expect(await File.exists(`${path}/${dbName}/${colName}/${insertedUser._id}.json`)).to.equal(true);
       const fileRead = await File.read(`${path}/${dbName}/${colName}/${insertedUser._id}.json`);
-      expect(fileRead.name).to.equal(user.name)
-      expect(fileRead.age).to.equal(user.age)
+      expect(fileRead.data.name).to.equal(user.name)
+      expect(fileRead.data.age).to.equal(user.age)
 
-      expect(client.databases[dbName].collections[colName].documents[hash]).to.deep.equal(['name','age']);
+      expect(client.databases[dbName].collections[colName].collection.documents[id]._fields).to.deep.equal(['name','age']);
 
 
       // Find

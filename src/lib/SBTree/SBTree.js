@@ -1,10 +1,16 @@
-const SBNode = require('./SBNode')
 const SBFieldTree = require('./SBFieldTree')
 const SBRootNode = require('./SBRootNode');
-const {each} = require('lodash');
+const Document = require('../../types/Document/Document');
+const ObjectId = require('../ObjectId/ObjectId');
+const {map, clone} = require('lodash');
 const defaultOpts = {
   size: 0,
   maxNodeSize:32
+};
+const removeMetadata = (documents)=>{
+  return map(documents, (document)=>{
+    return document
+  })
 }
 class SBTree {
   constructor(props={}){
@@ -14,16 +20,25 @@ class SBTree {
     this.fieldNode = []
   }
 
-  insertDocument(document){
+  insertDocuments(documents){
+    if(Array.isArray(documents)){
+      return map(documents, (document)=>{
+        return this.insertDocuments(document);
+      })
+    }
+    const document = clone(documents);
+    if(!document._id || !new ObjectId(document._id).isValid()){
+      document._id = new ObjectId().toString();
+      return this.insertDocuments((document));
+    }
     this.root.insert(document);
     this.size += 1;
   }
-  findDocument(params){
-    return this.root.query(params);
+  findDocuments(params){
+    return (this.root.query(params));
   }
-  addFieldNode(fieldName){
-    this.root.insert(fieldName);
-    // this.fieldNode.push(new SBFieldNode({fieldName}))
+  getDocument(objectId){
+    return (this.root.get(objectId));
   }
 };
 module.exports = SBTree;

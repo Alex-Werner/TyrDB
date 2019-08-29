@@ -31,6 +31,7 @@ class Collection {
   }
 };
 Collection.prototype.export = require('./methods/export')
+Collection.prototype.get = require('./methods/get')
 Collection.prototype.find = require('./methods/find')
 Collection.prototype.insert = require('./methods/insert')
 Collection.prototype.insertMany = require('./methods/insertMany')

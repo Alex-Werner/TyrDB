@@ -22,6 +22,8 @@ describe('MemoryAdapter - Within Tyr', ()=>{
       expect(db.collection).to.be.a('function');
 
       // Specific to this adapter
+      console.log(client.persistanceAdapter.store.databases[dbName])
+      console.log(client.persistanceAdapter.store.databases[dbName])
       expect(client.persistanceAdapter.store.databases[dbName].db).to.deep.equal(db);
       expect(client.persistanceAdapter.store.databases[dbName].collections).to.deep.equal({});
 
