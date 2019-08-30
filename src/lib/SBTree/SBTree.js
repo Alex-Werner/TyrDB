@@ -5,7 +5,7 @@ const ObjectId = require('../ObjectId/ObjectId');
 const {map, clone} = require('lodash');
 const defaultOpts = {
   size: 0,
-  maxNodeSize:32
+  maxNodeSize:16
 };
 const removeMetadata = (documents)=>{
   return map(documents, (document)=>{
