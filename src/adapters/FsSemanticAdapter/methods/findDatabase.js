@@ -1,5 +1,4 @@
 const Database = require('../../../types/Database/Database');
-const File = require('../../FsAdapter/File/File');
 module.exports = async function findDatabase(tyrInstance, dbName, opts){
     let db = undefined;
     if(!dbName){

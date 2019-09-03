@@ -1,5 +1,4 @@
 const Collection = require('../../../types/Collection/Collection');
-const File = require('../../FsAdapter/File/File');
 module.exports = async function findCollection(tyrInstance, dbName, colName, opts){
     let col = undefined;
     if(!dbName){

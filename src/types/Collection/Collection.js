@@ -1,27 +1,29 @@
+const {SBTree} = require('sbtree')
 const defaultProps = {
   name: 'default_col',
-  documents: []
 }
 class Collection {
   #adapter;
   #tyrInstance;
-  #setIndices = require('./methods/private/setIndices')
-  #setUniques = require('./methods/private/setUniques')
+  #tree;
   constructor(props) {
     this.name = (props.name) ? props.name : defaultProps.name;
-    this.documents = (props.documents) ? props.documents : defaultProps.documents;
-    this.#adapter = props.adapter;
+    this.documents = (props.documents) ? props.documents : [];
     this.#tyrInstance = props.tyrInstance;
-    this.parentDatabaseName = (props.parentDatabaseName)
-    this.binaryIndices = {};
-    this.uniqueNames = [];
+
+    this.#tree = new SBTree({order:127});
+
+    this.parentDatabaseName = (props.parentDatabaseName);
 
     if(props.indices){
-      this.#setIndices(props.indices)
+      throw new Error('Not implemented : Indices')
     }
     if(props.uniques){
-      this.#setUniques(props.uniques)
+      throw new Error('Not implemented : Unique field')
     }
+  }
+  getTree(){
+    return this.#tree;
   }
   getAdapter(){
     return this.#adapter;

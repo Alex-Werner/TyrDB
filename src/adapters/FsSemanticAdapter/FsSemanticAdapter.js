@@ -1,7 +1,4 @@
 const PersistanceAdapter = require('../../types/PersistanceAdapter/PersistanceAdapter')
-const File = require('../../adapters/FsAdapter/File/File');
-const Directory = require('../../adapters/FsAdapter/Directory/Directory');
-const Database = require('../../../src/types/Database/Database');
 
 const is = require('../../utils/is')
 

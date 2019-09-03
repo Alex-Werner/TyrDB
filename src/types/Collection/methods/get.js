@@ -1,4 +1,4 @@
-const findDocument = require('../ops/findDocument');
-module.exports = function get(objectid){
-  return findDocument(this, objectid);
+module.exports = function get(identifier){
+  const tree = this.getTree();
+  return tree.getDocument(identifier);
 }

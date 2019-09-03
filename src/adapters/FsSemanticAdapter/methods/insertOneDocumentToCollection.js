@@ -1,5 +1,4 @@
 const Document = require('../../../types/Document/Document')
-const File = require('../../FsAdapter/File/File')
 
 async function insertOneDocumentToCollection(tyrInstance, dbName, colName, document){
   const newDocument = new Document(document);

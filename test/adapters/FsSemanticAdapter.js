@@ -1,8 +1,6 @@
 const { expect } = require('chai');
 const TyrDB = require('../../index');
 const FsSemanticAdapter = require('../../src/adapters/FsSemanticAdapter/FsSemanticAdapter');
-const Directory = require('../../src/adapters/FsAdapter/Directory/Directory')
-const File = require('../../src/adapters/FsAdapter/File/File')
 // describe('FsSemanticAdapter', () => {
 //
 //   it('should create missing folder on create', async function () {

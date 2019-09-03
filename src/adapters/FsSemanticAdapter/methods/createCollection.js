@@ -1,5 +1,4 @@
 const Collection = require('../../../types/Collection/Collection');
-const File = require('../../FsAdapter/File/File');
 
 module.exports = async function createCollection(tyrInstance, dbName, colName, opts){
     const collection = new Collection(Object.assign({name:colName, adapter:this, tyrInstance, parentDatabaseName:dbName},opts))

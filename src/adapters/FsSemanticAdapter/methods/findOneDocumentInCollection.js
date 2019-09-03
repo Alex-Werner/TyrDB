@@ -1,7 +1,5 @@
 const Collection = require('../../../types/Collection/Collection');
 const {find, matches} = require('lodash');
-const File = require('../../FsAdapter/File/File');
-const Directory = require('../../FsAdapter/Directory/Directory');
 
 async function findOneDocumentInCollection(tyrInstance, dbName, colName, selector, options){
   const path = `${tyrInstance.options.path}/${dbName}/${colName}`;
