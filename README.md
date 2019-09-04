@@ -5,14 +5,16 @@
 
 > Fast in-memory database for node and browser that is portable and easy to use
 
-Goal is to provide a MemoryAdapter and a FsAdapter with an API very similar to node-mongodb-native.   
-We would be able to quickly add a real mongodb adapter after wards.  
+The goal of TyrDB is to a database that is fast and easy to work with while still match the performances and features of modern databases.   
 
-Usage is of TyrDB is mostly intended for bootstraping project or small servers however we used a modified B+Tree system, which should fit real usage needs.  
-The change in B+tree allow us to NOT have to load everything on local memory, therefore you should not see any issue that you encounter with typical ready/easy to use DB out-there. 
+It uses for that the Mongo query syntax so that any switch from TyrDB in dev and Mongo in production is easy and fast to perform.  
 
-The logic is to provide you everything to do stuff with a DB, without any install / config, in a way that will allow you to easily switch to a real mongoDB adapter during the pre-production (thus the similar verbing of methods). 
+Indeed, TyrDB is mostly intended for bootstraping project or small servers mostly due to the early state of this repository. 
+But due to the use of a modified B+Tree system, performance are here without the need to load everything in memory as you can encounter with many Node DB out-there.
 
+TyrDB provide you an immediate database that you can use and with data file you can git for your dev cycles.   
+
+Adapters available for In-Memory and FS store.   
  
 ### Table of Contents
  - [Installation](#installation)
@@ -47,13 +49,14 @@ const {MemoryAdapter} = require('tyrdb/adapters')
 
 const adapter = new MemoryAdapter();
 const client = new TyrDB({adapter});
-const dbName = 'myproject';
 
 async function start(){
  await client.connect();
  console.log('In sync with the adapter/server');
- const db = client.db(dbName);
- client.close();
+ const db = await client.db('myproject');
+ const col = await db.collection('users');
+ const insertedDoc = await col.find({age:33});
+ await client.close();
 }
 start();
 ```
@@ -126,21 +129,20 @@ const client = new TyrDB({path:'.db/mydbpath',adapter});
 ## FAQ : 
 #### Is it a definitive API ? 
 
-Glad I asked that myself so I can warn you : Nope, I'm not yet sure on the internals, as there is some data handled by the adapters while we handle the metadata.
-On top of that, we want to perform ops with sometimes data on file. Basically : I will be careful, but it might change. 
+Any move we might take will be in the direction of matching more carefully the mongo syntax. So you should be good on that.  
+No promises, I tend to love breaking things to move on.  
 
-#### Is it just a big in-memory things ? 
+#### Why another one ? 
 
-Well, actually no. If you use MemoryAdapter, you will have a full local store. But when using FS, the whole logic is to save in JSON file.  
-We just hold locally some meta information (because we will need to lookup for the file).   
-The whole problem is on how to find an information without parsing EVERY file out there.  
-That is why each field of a document gets to be a meta, with their own local B+Tree.  
+The in-memory things. It's annoying, I need to be able to have as much as big documents as I would love without hitting that much the performance. 
+So it uses a B+Tree modified architecture for storing. You can see the dependency here [SBTree](https://github.com/Alex-Werner/SBTree).
 
 #### Any drowback of this library ? 
 
-Right now, we just know how to find, but there is no fancyness from the MongoDB or anything. It also might never come, dependings of if I need them myself or have extra time. 
+Right now, we just know how to find on strict equality, but there is no fancyness from the MongoDB or anything. It also might never come, dependings of if I need them myself or have extra time. 
 So for now, yes : You can just insert and find.   
 Also, if your document has it's own `_id` value, then it should be a valid mongodb ObjectId value. Post an issue if that is colliding with your own data, we can change it.   
+Finally, there is no support yet in SBTree for nested document. We then only support 1-level documents.
 
 #### Difference between .serialize() and .export()
 
@@ -153,6 +155,6 @@ Therefore every element is caracterized by it's own metadata and data.
 
 TODO.
 
-#### Why TyrDB
+#### Why the name
 
 A mix between my own interest for naming with nordic gods (or gods in general) many of my softwares, and due to LokiDB existing with similar purpose (with limitation that weren't suiting my needs). Therefore TyrDB.

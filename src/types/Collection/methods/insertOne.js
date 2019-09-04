@@ -2,6 +2,6 @@ module.exports = async function insertOne(payload){
   const result = await this.getTree().insertDocuments(payload);
 
   return {
-    result,
+    results:[result],
   }
 }

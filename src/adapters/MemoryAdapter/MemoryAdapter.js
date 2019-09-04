@@ -15,4 +15,5 @@ MemoryAdapter.prototype.findDatabase = require('./methods/findDatabase');
 MemoryAdapter.prototype.findOneDocumentInCollection = require('./methods/findOneDocumentInCollection');
 MemoryAdapter.prototype.findOneDocumentInCollectionByObjectId = require('./methods/findOneDocumentInCollectionByObjectId');
 MemoryAdapter.prototype.insertOneDocumentToCollection = require('./methods/insertOneDocumentToCollection');
+MemoryAdapter.prototype.serializeMeta = require('./methods/serializeMeta');
 module.exports = MemoryAdapter;

@@ -8,12 +8,10 @@ class Collection {
   #tree;
   constructor(props) {
     this.name = (props.name) ? props.name : defaultProps.name;
-    this.documents = (props.documents) ? props.documents : [];
     this.#tyrInstance = props.tyrInstance;
 
     this.#tree = new SBTree({order:127});
 
-    this.parentDatabaseName = (props.parentDatabaseName);
 
     if(props.indices){
       throw new Error('Not implemented : Indices')

@@ -1,4 +1,5 @@
 const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
+const FsAdapter = require('../../adapters/FsAdapter/FsAdapter');
 const EventEmitter = require('eventemitter2').EventEmitter2;
 const Event = require('../Event');
 const pkgVersion = require('../../../package.json').version;
@@ -14,6 +15,16 @@ const defaultProps = {
   databaseVersion: pkgVersion
 };
 
+const loadAdapter = function(adapterProps){
+  switch (adapterProps.name) {
+    case "FsAdapter":
+      return new FsAdapter();
+    case "MemoryAdapter":
+      return new MemoryAdapter();
+    default:
+      throw new Error(`Unsupported adapter ${adapterProps.name}`);
+  }
+}
 class TyrDB {
   #emitter = new EventEmitter();
 
@@ -28,6 +39,10 @@ class TyrDB {
     return this.#emitter.on(eventName, callback);
   }
   constructor(props = {}) {
+    // if(typeof props === 'string'){
+    //   props = JSON.parse(props);
+    // }
+    // console.log(props.options.path, props)
     this.options = {
       path:(props.path) ? props.path : defaultProps.options.path,
       autoInitialize :(!is.undef(props.autoInitialize)) ? props.autoInitialize : defaultProps.options.autoInitialize,
@@ -37,7 +52,7 @@ class TyrDB {
       isConnected: false,
       isConnecting: false
     }
-    this.persistanceAdapter = (props.adapter) ? props.adapter : new MemoryAdapter();
+    this.persistanceAdapter = (props.adapter) ? loadAdapter(props.adapter) : new MemoryAdapter();
     this.databases = (props.databases) ? props.databases : defaultProps.databases;
     this.databaseVersion = (props.databaseVersion) ? props.databaseVersion : defaultProps.databaseVersion;
 
@@ -57,4 +72,5 @@ TyrDB.prototype.close = require('./methods/close')
 TyrDB.prototype.connect = require('./methods/connect')
 TyrDB.prototype.db = require('./methods/db')
 TyrDB.prototype.initialize = require('./methods/initialize')
+TyrDB.prototype.serializeMeta = require('./methods/serializeMeta')
 module.exports = TyrDB;
