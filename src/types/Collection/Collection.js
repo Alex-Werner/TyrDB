@@ -1,4 +1,4 @@
-const {SBTree} = require('sbtree')
+const {SBTree, adapters} = require('sbtree')
 const defaultProps = {
   name: 'default_col',
 }
@@ -8,10 +8,20 @@ class Collection {
   #tree;
   constructor(props) {
     this.name = (props.name) ? props.name : defaultProps.name;
+    this.parentDatabaseName = (props.parentDatabaseName) ? props.parentDatabaseName : null;
     this.#tyrInstance = props.tyrInstance;
 
-    this.#tree = new SBTree({order:127});
 
+    const adapterName = this.#tyrInstance.persistanceAdapter.constructor.name;
+    if(!adapters[adapterName]){
+      throw new Error(`Missing adapter for SBTree : ${adapterName}`)
+    }
+
+    const adapterOpts = Object.assign({}, this.#tyrInstance.options);
+    console.log(this.#tyrInstance)
+    adapterOpts.path += `/${this.name}`
+    const adapter = new adapters[adapterName](this.#tyrInstance.options);
+    // this.#tree = new SBTree({order:127, adapter});
 
     if(props.indices){
       throw new Error('Not implemented : Indices')

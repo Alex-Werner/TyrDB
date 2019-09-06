@@ -12,6 +12,7 @@ const FsSemanticAdapter = require('../../src/adapters/FsSemanticAdapter/FsSemant
 //     console.log(adapter)
 //   });
 // });
+return;
 describe('FsSemanticAdapter - Within Tyr', ()=>{
   const adapter = new FsSemanticAdapter();
   it('should work', function (done) {

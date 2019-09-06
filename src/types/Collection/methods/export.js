@@ -1,5 +1,5 @@
 module.exports = function exportToJSON(){
-  const {name}= this;
+  const {name, parentD}= this;
   return {
     name,
   }

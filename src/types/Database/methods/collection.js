@@ -6,9 +6,9 @@ async function collection(collectionName, opts){
   if (!instance.databases[this.name]) {
     throw new Error('Invalid database')
   }
-  const adaper = this.getAdapter();
+  const adapter = this.getAdapter();
   if(!instance.databases[this.name].collections[collectionName]){
-      const coll = await adaper.findOrCreateCollection(instance, this.name, collectionName, opts)
+      const coll = await adapter.findOrCreateCollection(instance, this.name, collectionName, opts)
       instance.databases[this.name].collections[collectionName] = {
         collection:coll,
       }

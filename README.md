@@ -20,8 +20,9 @@ Adapters available for In-Memory and FS store.
  - [Installation](#installation)
  - [Usage](#usage)
  - [Documentation](#documentation)
-     - [Events](/doc/events.md)
     - [API](/doc/api.md)
+    - [Events](/doc/events.md)
+    - [Queries](/doc/queries.md)
  - [Metadata Info](#documents-metadata)
  - [Adapters](#adapters)
  - [FAQ](#faq)
@@ -80,8 +81,9 @@ db.on('ready',start);
 
 ## Documentation 
 
-- [Events](/doc/events.md)
 - [API](/doc/api.md)
+- [Events](/doc/events.md)
+- [Queries](/doc/queries.md)
 
 ## Documents Metadata
 
@@ -127,34 +129,39 @@ const client = new TyrDB({path:'.db/mydbpath',adapter});
 - `LocalStorageAdapter` : Persist in web browser local storage
 
 ## FAQ : 
-#### Is it a definitive API ? 
+#### Q : Is it a definitive API ? 
 
 Any move we might take will be in the direction of matching more carefully the mongo syntax. So you should be good on that.  
 No promises, I tend to love breaking things to move on.  
 
-#### Why another one ? 
+#### Q : Why another one ? 
 
 The in-memory things. It's annoying, I need to be able to have as much as big documents as I would love without hitting that much the performance. 
 So it uses a B+Tree modified architecture for storing. You can see the dependency here [SBTree](https://github.com/Alex-Werner/SBTree).
 
-#### Any drowback of this library ? 
+#### Q : Any drowback of this library ? 
 
-Right now, we just know how to find on strict equality, but there is no fancyness from the MongoDB or anything. It also might never come, dependings of if I need them myself or have extra time. 
+Right now, you are limited in the abilities of querying as we only support ($eq, $neq, $lt, $lte, $gt, $gte), there is not yet all the fancyness from the MongoDB or anything. It also might never come, dependings of if I need them myself or have extra time. 
 So for now, yes : You can just insert and find.   
+
 Also, if your document has it's own `_id` value, then it should be a valid mongodb ObjectId value. Post an issue if that is colliding with your own data, we can change it.   
 Finally, there is no support yet in SBTree for nested document. We then only support 1-level documents.
 
-#### Difference between .serialize() and .export()
+#### Q : Difference between .serialize() and .export()
 
 TyrDB by default do not hold any data, only refs and indexes. Data are handled by adapters.
 Therefore every element is caracterized by it's own metadata and data. 
 `.export()` fetches the metadata elements.
 `.serialize()` the json representation of the elements.
 
-#### How much work is needed to switch to mongodb afterwards : 
+#### Q : How much work is needed to switch to mongodb afterwards : 
 
 TODO.
 
-#### Why the name
+#### Q : Why the name
 
 A mix between my own interest for naming with nordic gods (or gods in general) many of my softwares, and due to LokiDB existing with similar purpose (with limitation that weren't suiting my needs). Therefore TyrDB.
+
+### Q : Links ?
+
+- [TODO](/TODO.md)

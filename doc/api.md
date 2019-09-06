@@ -34,6 +34,8 @@ async function insertUser(){
 start();
 ```
 
+See more on the valid [Queries](/doc/queries.md)
+
 # Update document
 
 ```

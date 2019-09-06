@@ -16,13 +16,14 @@ const defaultProps = {
 };
 
 const loadAdapter = function(adapterProps){
-  switch (adapterProps.name) {
+  const name = adapterProps.name || adapterProps.constructor.name
+  switch (name) {
     case "FsAdapter":
       return new FsAdapter();
     case "MemoryAdapter":
       return new MemoryAdapter();
     default:
-      throw new Error(`Unsupported adapter ${adapterProps.name}`);
+      throw new Error(`Unsupported adapter ${adapterProps.name} ${JSON.stringify(adapterProps)}`);
   }
 }
 class TyrDB {
