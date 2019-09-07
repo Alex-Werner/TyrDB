@@ -1,5 +1,4 @@
-// const {SBTree, adapters} = require('sbtree');
-const {SBTree, adapters} = require('../../../../SBTree/index');
+const {SBTree, adapters} = require('sbtree');
 const EventEmitter = require('eventemitter2').EventEmitter2;
 
 class Collection {
@@ -11,7 +10,7 @@ class Collection {
       name: 'default_col',
       exclude:[],
       uniques:[],
-      order: 128
+      order: 511
     }
     this.isReady = false;
 

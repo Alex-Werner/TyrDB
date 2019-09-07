@@ -33,7 +33,7 @@ describe('TyrDB - Performance - Benchmark within test ', async function () {
   this.timeout(10000)
   before((done) => {
     console.log(`Will process ${fakeData.length} elements`);
-    tyrdb = new TyrDB();
+    tyrdb = new TyrDB({order:511});
     tyrdb.db('dbname').then((_db)=>{
       db = _db;
       db.collection('users').then((_col)=>{

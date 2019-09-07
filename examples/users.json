@@ -1,0 +1,69 @@
+{
+  "Alex": {
+    "name": "Alex",
+    "age": 27,
+    "country": "France",
+    "gender": "Male"
+  },
+  "Jean": {
+    "name": "Jean",
+    "age": 34,
+    "country": "France",
+    "gender": "Male"
+  },
+  "Alice": {
+    "name": "Alice",
+    "age": 36,
+    "country": "United States",
+    "gender": "Female"
+  },
+  "Bob": {
+    "name": "Bob",
+    "age": 45,
+    "country": "United States",
+    "gender": "Male"
+  },
+  "Pascal": {
+    "name": "Pascal",
+    "age": 41,
+    "country": "Switzerland",
+    "gender": "Male"
+  },
+  "Anastasia": {
+    "name": "Anastasia",
+    "age": 34,
+    "country": "Russia",
+    "gender": "Female"
+  },
+  "Lucy": {
+    "name": "Lucy",
+    "age": 23,
+    "country": "Hong Kong",
+    "gender": "Female"
+  },
+  "Taneti": {
+    "name": "Teneti",
+    "age": 43,
+    "country": "Kiribati",
+    "gender": "Female"
+  },
+  "Chen": {
+    "firstname": "Chen",
+    "age": 39,
+    "country": "China",
+    "gender": "Male"
+  },
+  "Julian": {
+    "_id": "5d73e4a894872624d6144b41",
+    "age": 19,
+    "firstname": "Julian",
+    "country": "Congo",
+    "gender": "Female"
+  },
+  "Brigitte": {
+    "age": 39,
+    "firstname": "Brigitte",
+    "country": "France",
+    "gender": "Female"
+  }
+}
