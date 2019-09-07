@@ -77,9 +77,9 @@ const adapter = new MemoryAdapter();
 const client = new TyrDB({adapter});
 const dbName = 'myproject';
 
-function start(){
- const db = client.db(dbName);
- client.close();
+async function start(){
+ const db = await client.db(dbName);
+ await client.close();
 }
 db.on('ready',start);
 ```
