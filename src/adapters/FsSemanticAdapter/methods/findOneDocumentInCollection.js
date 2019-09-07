@@ -5,7 +5,6 @@ async function findOneDocumentInCollection(tyrInstance, dbName, colName, selecto
   const path = `${tyrInstance.options.path}/${dbName}/${colName}`;
 
   const listDocuments = await Directory.list(path)
-  console.log(listDocuments)
   //
   // const documents = this.store.databases[dbName].collections[colName].documents;
   // if(selector.hasOwnProperty('_id')){

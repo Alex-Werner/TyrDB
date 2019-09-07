@@ -24,7 +24,6 @@ class FsSemanticAdapter extends PersistanceAdapter {
         if(!args.colName || !args.dbName){
           throw new Error('Asked to save collection without args');
         }
-        console.log(this)
         break;
       default:
         throw new Error(`Not handled type ${type}`)

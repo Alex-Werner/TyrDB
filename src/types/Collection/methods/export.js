@@ -1,6 +1,6 @@
-module.exports = function exportToJSON(){
-  const {name, parentD}= this;
+module.exports = function exportToJSON() {
+  const {name, parentDatabaseName} = this;
   return {
-    name,
+    name, parentDatabaseName
   }
 }

@@ -35,7 +35,7 @@ module.exports = class PersistanceAdapter {
     throw new Error('Not implemented')
   }
   async findOrCreateCollection(tyrInstance,dbName, collName, opts){
-    const db = await this.findCollection(tyrInstance, dbName, collName,opts)
+    const db = await this.findCollection(tyrInstance, dbName, collName,opts);
     if(!db){
       return this.createCollection(tyrInstance, dbName, collName, opts);
     }

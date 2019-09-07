@@ -4,13 +4,23 @@
 # Create Collection
 
 ```
-async function createCol(){
+async function createCol(opts={}){
  const db = client.db('myDb');
  const users = db.collection('users');
  client.close();
 }
 start();
 ```
+
+Options : 
+
+  - `adapter` Adapter - (def: MemoryAdapter) : Allow to specific another adapter to use
+  - `order` Number - (def: 511) : Primordial for the performance, the closest to L1 the better. Chose below 2^n. 
+  - `verbose` Bool - (def: false)
+  - `uniques` Array - (def: []) - Allow to set some field unique by adding them to this array
+  - `exclude` Array - (def: []) - Allow to exclude from indexing some field (important if you expect field value to be huge or nested).
+
+- uniques 
 
 # Insert documents
 

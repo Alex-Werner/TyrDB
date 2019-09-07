@@ -1,4 +1,3 @@
 module.exports = function connectDatabase(){
-  console.log('connect',this)
-  // console.log('load', this.#persistanceAdapter);
+  throw new Error('Not implemented');
 }

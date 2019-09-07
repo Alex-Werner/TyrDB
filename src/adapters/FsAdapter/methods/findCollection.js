@@ -14,9 +14,11 @@ module.exports = async function findCollection(tyrInstance, dbName, colName, opt
         return col;
     }
     const meta = await this.queue.add('File.read',path).getResults();
-    console.log(meta)
-    console.log(meta)
     col = new Collection(Object.assign(meta,{ adapter:this, tyrInstance}));
 
-    return col;
+    return new Promise((resolve)=>{
+        col.emitter.on('ready', ()=>{
+            return resolve(col)
+        })
+    })
 }

@@ -80,17 +80,19 @@ describe('TyrDB - Class', () => {
   it('should be able to create a collection', async function () {
     const db = await tyr.db('db');
     const col = await db.collection('col');
-    expect(Object.assign({}, col)).to.deep.equal({
+    expect(Object.assign({}, {name:col.name, parentDatabaseName:col.parentDatabaseName})).to.deep.equal({
       name: 'col',
+      parentDatabaseName: 'db',
     });
     col.initialCreation = true;
   });
   it('should be able to get a collection', async function () {
     const db = await tyr.db('db');
     const col = await db.collection('col');
-    expect(Object.assign({}, col)).to.deep.equal({
-      initialCreation: true,
+    expect(Object.assign({}, {name:col.name, parentDatabaseName:col.parentDatabaseName, initialCreation:col.initialCreation})).to.deep.equal({
       name: 'col',
+      parentDatabaseName: 'db',
+      initialCreation: true,
     });
   });
   it('should be able to create a document', async function () {

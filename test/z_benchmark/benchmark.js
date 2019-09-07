@@ -11,19 +11,19 @@ let db;
 let col;
 let benchmark = {
   writeOp: {
-    maxOp: 2600,
+    maxOp: fakeData.length,
     executedOp: 0,
     duration: 0,
     ops: 0
   },
   getOp: {
-    maxOp: 2600,
+    maxOp: fakeData.length,
     executedOp: 0,
     duration: 0,
     ops: 0
   },
   findOp: {
-    maxOp: 2600,
+    maxOp: fakeData.length,
     executedOp: 0,
     duration: 0,
     ops: 0

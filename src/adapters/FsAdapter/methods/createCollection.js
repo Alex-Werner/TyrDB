@@ -5,5 +5,11 @@ module.exports = async function createCollection(tyrInstance, dbName, colName, o
     const path = `${tyrInstance.options.path}/${dbName}/${colName}/meta.json`;
     //FIXME : Do we actually really want to wait ?
     await this.queue.add('File.create',path, collection.export()).execution();
-    return collection;
+
+
+    return new Promise((resolve)=>{
+        collection.emitter.on('ready', ()=>{
+            return resolve(collection)
+        })
+    })
 };
