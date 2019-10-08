@@ -20,6 +20,7 @@ Adapters available for In-Memory and FS store.
  
 N.B : Fields are indexed by default. Specifically exclude field that might be too lengthy as otherwise might have heavy performance effect (see more on BTree to understand).  
 Uniques field are also available.   
+TyrDB relies on [SBTree](https://github.com/Alex-Werner/SBTree) as it's main dependencies for data.  
 
 ### Table of Contents
  - [Installation](#installation)

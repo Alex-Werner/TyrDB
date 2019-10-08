@@ -18,6 +18,6 @@ describe('Type - Collection', () => {
     expect(colExclude.getTree().exclude).to.be.deep.equal(['email'])
 
     const colOrder = new Collection({name:'users', tyrInstance:fakeTyrInstance,order:25})
-    expect(colOrder.getTree().options.order).to.be.deep.equal(25)
+    expect(colOrder.getTree().order).to.be.deep.equal(25)
   });
 });
