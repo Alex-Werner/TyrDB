@@ -61,8 +61,19 @@ async function start(){
  await client.connect();
  console.log('In sync with the adapter/server');
  const db = await client.db('myproject');
- const col = await db.collection('users');
- const insertedDoc = await col.find({age:33});
+  
+ const doc = {
+  name: 'Jean',
+  age: 33,
+  nestedObject:{isNested:true}
+}
+  // Allow to pass along SBTree options
+ const opts = {exclude:['nestedObject']};
+ const col = await db.collection('users', opts);
+
+ const insertedDoc = await col.insert(doc);
+ const search = await col.find({age:33}); //[{name:"Jean",age:33, nestedObject:{isNested:true}]
+
  await client.close();
 }
 start();
