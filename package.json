@@ -1,6 +1,6 @@
 {
   "name": "tyrdb",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Fast document oriented NodeJS database for node and browser. Allow adapters for in-memory, fs (JSON based or optimized), localStorage.",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "fslockjs": "^1.3.0",
     "lodash": "^4.17.15",
     "mongo-objectid": "^1.1.0",
-    "sbtree": "^2.0.0"
+    "sbtree": "^2.0.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
