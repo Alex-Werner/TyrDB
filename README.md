@@ -5,19 +5,13 @@
 
 > Fast in-memory database for node and browser that is portable and easy to use
 
-The goal of TyrDB is to provide a fast, easy and instant to use database for your prototype project.   
+The goal of TyrDB is to provide a fast, easy and instant to use database.   
 It aims at getting close to the performance and features you could find in your modern NoSQL DB solutions.   
-For that, a subset of the Mongo query syntax is being used, so the production switch from TyrDB dev env to MongoDB will be as fast as possible.    
+For that, a subset of the Mongo query syntax is being used, so the production switch from TyrDB dev env to MongoDB would be as fast as possible.    
 
-TyrDB is intended for bootstraping project or small servers.    
+TyrDB is intended for bootstrapping project or small backend servers.    
 Due to the use of a modified B+Tree system, performance stays at service without the need to load everything in memory as you can encounter with many Node DB out-there.   
 
-Due to the early state of this repository, one should be careful with what they use this for.  
-
-TyrDB provide you an immediate database that you can use and with data file you can git for your dev cycles.    
-
-Adapters available for In-Memory and FS store.   
- 
 N.B : Fields are indexed by default. Specifically exclude field that might be too lengthy as otherwise might have heavy performance effect (see more on BTree to understand).  
 Uniques field are also available.   
 TyrDB relies on [SBTree](https://github.com/Alex-Werner/SBTree) as it's main dependencies for data.  
@@ -68,7 +62,7 @@ async function start(){
   nestedObject:{isNested:true}
 }
   // Allow to pass along SBTree options
- const opts = {exclude:['nestedObject']};
+ const opts = {};
  const col = await db.collection('users', opts);
 
  const insertedDoc = await col.insert(doc);
