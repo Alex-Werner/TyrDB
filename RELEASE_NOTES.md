@@ -1,3 +1,11 @@
+## 2.1.0
+
+- Added remove feature from SBTree
+
+## 2.0.1
+
+- Fix options not being properly passed along
+
 ## 2.0.0 
 
 - Allow to set field-wide uniqueness of value on Collection
