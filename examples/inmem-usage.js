@@ -57,14 +57,23 @@ async function start() {
   console.log(`\n Searching age >=45`)
   console.log(await col.find({age: {$gte: 45}}));
 
+  console.log(`\n Searching age <45`)
+  console.log(await col.find({age: {$lt: 45}}));
+
   console.log(`\n Searching country ['US', 'China']`)
   console.log(await col.find({country: {$in: ['United States', 'China']}}));
 
   console.log('\n Female between 18 and 40 in France');
   console.log(await col.find({country: {$in: ['France']}, age:{$lt:40, $gte:18}, gender:"Female"}));
-
+  // const res = (await col.find({age:{$gt:38, $lt:45}}));
+  // console.log(res)
   console.log(`\n Getting document by id`);
   console.log(await col.get(insertedDocId));
+
+  console.log('\n Removing document')
+  console.log(await col.remove({name:'Bob'}));
+  console.log(await col.find({name:'Bob'}));
+
 
   await client.close();
 }

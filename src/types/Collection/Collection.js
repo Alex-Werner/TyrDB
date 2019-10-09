@@ -58,6 +58,7 @@ Collection.prototype.export = require('./methods/export')
 Collection.prototype.get = require('./methods/get')
 Collection.prototype.find = require('./methods/find')
 Collection.prototype.insert = require('./methods/insert')
+Collection.prototype.remove = require('./methods/remove')
 Collection.prototype.insertMany = require('./methods/insertMany')
 Collection.prototype.insertOne = require('./methods/insertOne')
 module.exports = Collection;

@@ -7,9 +7,6 @@ const client = new TyrDB([opts]);
 ```
 - Constructor options :
   - `adapter` Adapter - (def: MemoryAdapter()) : Allow to specific another adapter to use
-  - `order` Number - (def: 511) : Primordial for the performance, the closest to L1 the better. Chose below 2^n. 
-  - `uniques` Array - (def: []) - Allow to set some field unique by adding them to this array
-  - `exclude` Array - (def: []) - Allow to exclude from indexing some field (important if you expect field value to be huge or nested).
   - `autoInitialize` Adapter - (def: true) : If true, will auto init the db
   - `autoConnect` Adapter - (def: true) : If true, will auto connect the db
   - `path` Adapter - (def: '.db') : Desired relative path to persist the data
@@ -29,12 +26,9 @@ const client = new TyrDB([opts]);
 # Create Collection
 
 ```js
-async function createCol(opts={}){
- const db = await client.db('myDb');
- const users = await db.collection('users');
- 
-}
-start();
+const db = await client.db('myDb');
+const opts = {};
+const users = await db.collection('users', opts);
 ```
 
 Options : 
@@ -67,37 +61,13 @@ start();
 
 See more on the valid [Queries](/doc/queries.md)
 
-# Update document
-
-```
-async function insertUser(){
- const users = await db.collection('users');
- const user = await users.find({name:"Obusco"});
- 
- // Way 1
- await user.update({age:29});
- 
- // Similar to Mongodb 
- await users.updateOne({name:"Obusco"});
-
- client.close();
-}
-start();
-```
-
 # Remove document
 
 ```
 async function insertUser(){
  const users = await db.collection('users');
- const user = await users.find({name:"Obusco"});
+ await users.remove({name:"Obusco"});
  
- // Way 1
- await user.remove();
- 
- // Similar to Mongodb 
- await users.deleteOne({name:"Obusco"});
-
  client.close();
 }
 start();
