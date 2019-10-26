@@ -38,7 +38,7 @@
     "fslockjs": "^1.3.0",
     "lodash": "^4.17.15",
     "mongo-objectid": "^1.1.0",
-    "sbtree": "^2.1.1"
+    "sbtree": "^2.2.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
