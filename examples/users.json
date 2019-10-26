@@ -1,48 +1,48 @@
 {
   "Alex": {
-    "name": "Alex",
+    "firstname": "Alex",
     "age": 27,
     "country": "France",
     "gender": "Male"
   },
   "Jean": {
-    "name": "Jean",
+    "firstname": "Jean",
     "age": 34,
     "country": "France",
     "gender": "Male"
   },
   "Alice": {
-    "name": "Alice",
+    "firstname": "Alice",
     "age": 36,
     "country": "United States",
     "gender": "Female"
   },
   "Bob": {
-    "name": "Bob",
+    "firstname": "Bob",
     "age": 45,
     "country": "United States",
     "gender": "Male"
   },
   "Pascal": {
-    "name": "Pascal",
+    "firstname": "Pascal",
     "age": 41,
     "country": "Switzerland",
     "gender": "Male"
   },
   "Anastasia": {
-    "name": "Anastasia",
+    "firstname": "Anastasia",
     "age": 34,
     "country": "Russia",
     "gender": "Female"
   },
   "Lucy": {
-    "name": "Lucy",
+    "firstname": "Lucy",
     "age": 23,
     "country": "Hong Kong",
     "gender": "Female"
   },
   "Taneti": {
-    "name": "Teneti",
+    "firstname": "Teneti",
     "age": 43,
     "country": "Kiribati",
     "gender": "Female"

@@ -17,7 +17,7 @@ async function start() {
 
   // Inserting a document
   await col.insert({
-    "name": "Devan",
+    "firstname": "Devan",
     "age": 38,
     "gender": "Male",
     "country": "Georgia",
@@ -26,7 +26,7 @@ async function start() {
 
   // Inserting any document without a _id will generate it one
   const insertedDoc = await col.insert({
-    "name": "Lilith",
+    "firstname": "Lilith",
     "age": 25,
     "gender": "Female",
     "country": "Armenia",
@@ -52,7 +52,7 @@ async function start() {
 
 
   console.log(`Searching Bob`)
-  console.log(await col.find({name:'Bob'}));
+  console.log(await col.find({firstname:'Bob'}));
 
   console.log(`\n Searching age >=45`)
   console.log(await col.find({age: {$gte: 45}}));
@@ -71,9 +71,15 @@ async function start() {
   console.log(await col.get(insertedDocId));
 
   console.log('\n Removing document')
-  console.log(await col.remove({name:'Bob'}));
-  console.log(await col.find({name:'Bob'}));
+  console.log(await col.remove({firstname:'Bob'}));
+  console.log(await col.find({firstname:'Bob'}));
 
+  console.log('\n Replacing a document');
+  const [brigitte] = await col.find({firstname:users.Brigitte.firstname})
+
+  brigitte.country = 'Belgium';
+  await col.replace(brigitte);
+  console.log(await col.find({firstname:users.Brigitte.firstname}))
 
   await client.close();
 }
