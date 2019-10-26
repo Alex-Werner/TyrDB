@@ -67,6 +67,9 @@ async function start(){
 
  const insertedDoc = await col.insert(doc);
  const search = await col.find({age:33}); //[{name:"Jean",age:33, nestedObject:{isNested:true}]
+ const [jean] = search;
+  jean.age = 34;
+ await col.replace(jean);
 
  await client.close();
 }
