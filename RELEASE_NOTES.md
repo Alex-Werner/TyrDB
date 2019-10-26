@@ -1,3 +1,7 @@
+## 2.2.0
+
+- Added replace feature from SBTree
+
 ## 2.1.0
 
 - Added remove feature from SBTree
