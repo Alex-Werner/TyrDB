@@ -145,10 +145,8 @@ So it uses a B+Tree modified architecture for storing. You can see the dependenc
 
 Right now, you are limited in the abilities of querying as we only support ($eq, $neq, $lt, $lte, $gt, $gte, $in, $nin), there is not yet all the fancyness from the MongoDB or anything yet (especially $regex).  
 It also might never come, dependings of if I need them myself or have extra time and demands for it, so mind opening an issue if it is your case in the SBTree repository :).  
-So for now, yes : You can just insert and find.   
 
 Also, if your document has it's own `_id` value, then it should be a valid mongodb ObjectId value. Post an issue if that is colliding with your own data, we can change it.   
-Finally, there is no support yet in SBTree for nested document. We then only support 1-level documents.
 
 #### Q : Difference between .serialize() and .export()
 
@@ -165,7 +163,7 @@ TODO STEP BY STEP.
 
 #### Q : Why the name
 
-A mix between my own interest for naming with nordic gods (or gods in general) many of my softwares, and due to LokiDB existing with similar purpose (with limitation that weren't suiting my needs). Therefore TyrDB.
+It's a tribute to LokiDB existing with similar purpose (with limitation that weren't suiting my needs). Therefore TyrDB.
 
 ### Q : Links ?
 

@@ -1,3 +1,7 @@
+## 2.2.1
+
+- Added nested object support from SBTree
+
 ## 2.2.0
 
 - Added replace feature from SBTree
