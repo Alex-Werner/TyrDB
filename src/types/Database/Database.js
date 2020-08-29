@@ -17,5 +17,6 @@ class Database {
   }
 }
 Database.prototype.collection = require('./methods/collection')
+Database.prototype.list = require('./methods/list')
 Database.prototype.export = require('./methods/export')
 module.exports = Database;

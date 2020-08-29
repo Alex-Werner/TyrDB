@@ -1,5 +1,6 @@
 const Collection = require('../../../types/Collection/Collection');
-const {find, matches} = require('lodash');
+const find = require('lodash.find');
+const matches = require('lodash.matches');
 
 function findOneDocumentInCollectionByObjectId(tyrInstance, dbName, colName, objectid){
   if(!dbName) throw new Error('Expected DB name');

@@ -1,5 +1,6 @@
 const Collection = require('../../../types/Collection/Collection');
-const {find, matches} = require('lodash');
+const find = require('lodash.find');
+const matches = require('lodash.matches');
 
 function findOneDocumentInCollection(tyrInstance, dbName, colName, selector, options){
   const documents = this.store.databases[dbName].collections[colName].documents;
