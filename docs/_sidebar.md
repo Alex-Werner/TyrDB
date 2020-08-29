@@ -15,6 +15,7 @@
            - [`.close()`](types/TyrDB/methods/close.md)
            - [`.connect()`](types/TyrDB/methods/connect.md)
            - [`.db()`](types/TyrDB/methods/db.md)
+           - [`.disconnect()`](types/TyrDB/methods/disconnect.md)
            - [`.initialize()`](types/TyrDB/methods/initialize.md)
            - [`.serializeMeta()`](types/TyrDB/methods/serializeMeta.md)
     - Database

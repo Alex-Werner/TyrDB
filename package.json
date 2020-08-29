@@ -1,6 +1,6 @@
 {
   "name": "tyrdb",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Fast document oriented NodeJS database for node and browser. Allow adapters for in-memory, fs (JSON based or optimized), localStorage.",
   "main": "index.js",
   "scripts": {

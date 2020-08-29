@@ -10,6 +10,7 @@ class FsAdapter extends PersistanceAdapter {
   }
 }
 FsAdapter.prototype.connectAdapter = require('./methods/connectAdapter');
+FsAdapter.prototype.disconnectAdapter = require('./methods/disconnectAdapter');
 FsAdapter.prototype.createCollection = require('./methods/createCollection');
 FsAdapter.prototype.createDatabase = require('./methods/createDatabase');
 FsAdapter.prototype.findDatabase = require('./methods/findDatabase');
