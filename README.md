@@ -1,7 +1,9 @@
 # TyrDB
 
 [![NPM Version](https://img.shields.io/npm/v/tyrdb.svg?&style=flat-square)](https://www.npmjs.org/package/tyrdb)
-[![Build Status](https://api.travis-ci.org/Alex-Werner/TyrDB.svg?branch=master)](https://travis-ci.com/Alex-Werner/TyrDB)
+[![Build Status](https://img.shields.io/github/workflow/status/alex-werner/tyrdb/Node.js%20CI)](https://github.com/Alex-Werner/TyrDB/actions)
+[![Release Date](https://img.shields.io/github/release-date/alex-werner/tyrdb)](https://github.com/alex-werner/tyrdb/releases/latest)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen)](https://github.com/RichardLitt/standard-readme)
 
 > Fast in-memory database for node and browser that is portable and easy to use
 

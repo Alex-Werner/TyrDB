@@ -1,4 +1,4 @@
-const {each}=require('lodash');
+const each = require('lodash.foreach');
 const converter = require('../../../utils/converter');
 
 module.exports = async function updateMetadata(){

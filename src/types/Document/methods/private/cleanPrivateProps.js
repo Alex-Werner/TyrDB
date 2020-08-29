@@ -1,4 +1,4 @@
-const {reduce} = require("lodash");
+const reduce = require("lodash.reduce");
 
 module.exports = cleanPrivateProps = (props) => {
   return reduce(props,(obj, prop, propName)=>{

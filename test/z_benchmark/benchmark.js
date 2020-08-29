@@ -3,7 +3,6 @@ const TyrDB = require('../../index');
 const fakeData = require('../fixtures/users')
 const {Timer} = require('../../src/utils/time');
 const {version} = require('../../package.json');
-const {each} = require('lodash');
 
 
 let tyrdb;

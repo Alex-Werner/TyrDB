@@ -1,5 +1,5 @@
 const ObjectID = require("mongo-objectid");
-const {clone} = require("lodash");
+const clone = require("lodash.clone");
 const cleanPrivateProps = require('./methods/private/cleanPrivateProps');
 
 class Document {
