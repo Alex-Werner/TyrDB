@@ -35,7 +35,7 @@ describe('TyrDB - Class', () => {
     expect(tyr.options).to.deep.equal({path: '.db', autoInitialize: true, autoConnect: true});
     expect(tyr.persistanceAdapter).to.deep.equal(new MemoryAdapter())
     expect(tyr.databases).to.deep.equal([])
-    expect(tyr.databaseVersion).to.deep.equal('2.2.1');
+    expect(tyr.databaseVersion).to.deep.equal('3.0.0');
     tyr.on('ready', () => {
       expect(tyr.state).to.deep.equal({
         isConnected: true,
@@ -159,7 +159,7 @@ describe('TyrDB - Class', () => {
     expect(docFromObjectid).to.deep.equal([helloDoc])
   });
   it('should serialize Meta of TyrDB', async function () {
-    const expected = {"options":{"path":".db","autoInitialize":true,"autoConnect":true},"state":{"isConnected":true,"isConnecting":false},"adapter":{"name":"MemoryAdapter"},"databases":[],"databaseVersion":"2.2.1"};
+    const expected = {"options":{"path":".db","autoInitialize":true,"autoConnect":true},"state":{"isConnected":true,"isConnecting":false},"adapter":{"name":"MemoryAdapter"},"databases":[],"databaseVersion":"3.0.0"};
     const client = new TyrDBSpec();
     await client.connect();
     const db = await client.db('tyrdb');
