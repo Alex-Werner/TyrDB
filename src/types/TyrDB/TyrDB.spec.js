@@ -1,7 +1,7 @@
 const {expect} = require('chai');
-const TyrDB = require('../../index');
-const MemoryAdapter = require('../../src/adapters/MemoryAdapter/MemoryAdapter');
-const Event = require('../../src/types/Event');
+const TyrDBSpec = require('../../../index');
+const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
+const Event = require('../Event');
 
 const myData = {
   name: 'mydoc',
@@ -30,7 +30,7 @@ const ids = [];
 describe('TyrDB - Class', () => {
   let tyr;
   it('should work', function (done) {
-    tyr = new TyrDB();
+    tyr = new TyrDBSpec();
 
     expect(tyr.options).to.deep.equal({path: '.db', autoInitialize: true, autoConnect: true});
     expect(tyr.persistanceAdapter).to.deep.equal(new MemoryAdapter())
@@ -46,13 +46,13 @@ describe('TyrDB - Class', () => {
 
   });
   it('should be able to listen', function (done) {
-    const tyr2 = new TyrDB();
+    const tyr2 = new TyrDBSpec();
     tyr2.on('ready', () => {
       done()
     });
   })
   it('should be able to emit normal event', function (done) {
-    const tyr2 = new TyrDB();
+    const tyr2 = new TyrDBSpec();
     tyr2.on('eventName', (event) => {
       expect(event).to.deep.equal({isSelected: true});
       done()
@@ -60,7 +60,7 @@ describe('TyrDB - Class', () => {
     tyr2.emit('eventName', {isSelected: true});
   });
   it('should be able to emit event', function (done) {
-    const tyr2 = new TyrDB();
+    const tyr2 = new TyrDBSpec();
     tyr2.on('eventName', (event) => {
       expect(event).to.deep.equal({isSelected: true});
       done()
@@ -160,7 +160,7 @@ describe('TyrDB - Class', () => {
   });
   it('should serialize Meta of TyrDB', async function () {
     const expected = {"options":{"path":".db","autoInitialize":true,"autoConnect":true},"state":{"isConnected":true,"isConnecting":false},"adapter":{"name":"MemoryAdapter"},"databases":[],"databaseVersion":"2.2.1"};
-    const client = new TyrDB();
+    const client = new TyrDBSpec();
     await client.connect();
     const db = await client.db('tyrdb');
     const col = await db.collection('users')
@@ -174,7 +174,7 @@ describe('TyrDB - Class', () => {
     expect(client.serializeMeta()).to.equal(JSON.stringify(expected));
     await client.close();
 
-    const client2 = new TyrDB(expected);
+    const client2 = new TyrDBSpec(expected);
     await client2.connect();
     expect(client2.serializeMeta()).to.deep.equal(JSON.stringify(expected));
     await client2.close();

@@ -2,3 +2,5 @@ node_modules
 .git
 .idea
 .db
+.DS_Store
+.nyc_output

@@ -1,12 +1,12 @@
 const { expect } = require('chai');
-const TyrDB = require('../../index');
-const MemoryAdapter = require('../../src/adapters/MemoryAdapter/MemoryAdapter');
+const TyrDB = require('../../../index');
+const MemoryAdapterSpec = require('./MemoryAdapter');
 
 describe('MemoryAdapter', () => {
 
 });
 describe('MemoryAdapter - Within Tyr', ()=>{
-  const adapter = new MemoryAdapter();
+  const adapter = new MemoryAdapterSpec();
 
   it('should work', function (done) {
     const client = new TyrDB({adapter});
