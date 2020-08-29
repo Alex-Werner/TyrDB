@@ -1,5 +1,6 @@
 - Getting started
     - [Quick start](getting-started/quickstart.md)
+    - [Queries](getting-started/queries.md)
 - Usage 
     - [Adapters](usage/adapters.md)
     - [Examples](usage/examples.md)
