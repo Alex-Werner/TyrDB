@@ -1,0 +1,8 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "ignorePatterns": ["**/*.spec.js"]
+}
