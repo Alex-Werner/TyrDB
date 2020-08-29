@@ -8,8 +8,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:unit": "nyc mocha 'src/**/*.spec.js'",
+    "test:functional": "mocha 'test/functional/*.js'",
     "test:benchmark": "mocha test/benchmark --recursive",
-    "test": "npm run test:unit"
+    "test": "npm run test:unit && npm run test:functional"
   },
   "repository": {
     "type": "git",
