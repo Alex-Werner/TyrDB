@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "name": "Alex Werner",
+      "email": "alex.werner@nowhere.com",
+      "api_key": {
+        "public": "pubkey1"
+      },
+      "age": 29
+    },
+    {
+      "name": "Jean Pascal",
+      "email": "jean.pascal@nowhere.com",
+      "api_key": {
+        "public": "pubkey_pascal1"
+      }
+    },
+    {
+      "name": "Nicolas Tesla",
+      "email": "nicolas.tesla@everywhere.com",
+      "api_key": {
+        "public": "pubkey1"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "_id": "5d6eac09fe05413e923f6ea3",
+      "name": "Bitcoin",
+      "metrics": {
+        "totalUnit": 2100000
+      },
+      "markets": {
+        "KRAKEN": {
+          "BTCUSD": {
+            "last": 10000
+          }
+        }
+      },
+      "tags": [
+        "Cryptocurrency"
+      ]
+    },
+    {
+      "_id": "5d6eac09fe05413e921acda9",
+      "name": "Gold",
+      "markets": {
+        "KRAKEN": {
+          "XAUUSD": {
+            "last": 4000
+          }
+        }
+      },
+      "metrics": {
+        "totalUnit": 500000000
+      },
+      "tags": [
+        "precious metals"
+      ]
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "Binance"
+    }
+  ],
+  "markets": [
+    {
+      "name": "BINANCE::BTCUSD",
+      "base": "USD",
+      "pair": "BTC"
+    }
+  ],
+  "candles": [
+    {
+      "last": 1000,
+      "market": "BINANCE::BTCUSD"
+    }
+  ]
+}

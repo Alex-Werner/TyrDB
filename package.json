@@ -1,6 +1,6 @@
 {
   "name": "tyrdb",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Fast document oriented NodeJS database for node and browser. Allow adapters for in-memory, fs (JSON based or optimized), localStorage.",
   "main": "index.js",
   "scripts": {
@@ -47,13 +47,13 @@
     "lodash.foreach": "^4.5.0",
     "lodash.matches": "^4.6.0",
     "lodash.reduce": "^4.6.0",
-    "mongo-objectid": "^1.1.0",
-    "sbtree": "^3.0.1"
+    "mongo-objectid": "^1.2.1",
+    "sbtree": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chance": "^1.1.7",
-    "eslint": "^7.7.0",
+    "eslint": "^7.8.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "mocha": "^8.1.3",
