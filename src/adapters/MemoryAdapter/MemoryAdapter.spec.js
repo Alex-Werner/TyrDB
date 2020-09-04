@@ -10,20 +10,18 @@ describe('MemoryAdapter - Within Tyr', ()=>{
 
   it('should work', function (done) {
     const client = new TyrDB({adapter});
+
     client.on('ready', async ()=>{
       const dbName = 'test_db';
 
       expect(client.persistanceAdapter.store.databases).to.deep.equal({});
 
       const db = await client.db(dbName);
-      console.log(db);
       expect(db.constructor.name).to.equal('Database');
       expect(db.name).to.equal(dbName)
       expect(db.collection).to.be.a('function');
 
       // Specific to this adapter
-      console.log(client.persistanceAdapter.store.databases[dbName])
-      console.log(client.persistanceAdapter.store.databases[dbName])
       expect(client.persistanceAdapter.store.databases[dbName].db).to.deep.equal(db);
       expect(client.persistanceAdapter.store.databases[dbName].collections).to.deep.equal({});
 
@@ -31,12 +29,10 @@ describe('MemoryAdapter - Within Tyr', ()=>{
       expect(client.databases[dbName].db).to.deep.equal(db);
       expect(client.databases[dbName].collections).to.deep.equal({});
 
-
       const colName = 'users';
       const userPayload = {name:"Obusco", age:28};
       // const users = await db.collection(colName, {indices:['name']});
       const users = await db.collection(colName);
-
 
       expect(users.constructor.name).to.equal('Collection');
       expect(users.name).to.equal(colName)
@@ -49,7 +45,6 @@ describe('MemoryAdapter - Within Tyr', ()=>{
       expect(client.databases[dbName].collections[colName].collection).to.deep.equal(users);
 
       const inserted = await users.insert(userPayload);
-
       expect(inserted.results.length).to.equal(1);
       const user = inserted.results[0]
 

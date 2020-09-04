@@ -29,7 +29,6 @@ describe('E2E - Classic UseCase', function suite() {
       const findResults = await assetsCollection.find({name: "Bitcoin"});
       expect(findResults).to.deep.equal([assets[0]])
       const findResults2 = await assetsCollection.find({metrics: {totalUnit:{$lte:20000}}});
-      console.log({findResults2});
 
     });
   });
