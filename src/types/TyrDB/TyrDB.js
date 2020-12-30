@@ -19,7 +19,6 @@ const loadAdapter = function(adapterProps){
   const name = adapterProps.name || adapterProps.constructor.name
   switch (name) {
     case "FsAdapter":
-      console.log('FS')
       return new FsAdapter();
     case "MemoryAdapter":
       return new MemoryAdapter();
