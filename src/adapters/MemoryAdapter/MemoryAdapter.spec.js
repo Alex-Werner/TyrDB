@@ -11,7 +11,7 @@ describe('MemoryAdapter - Within Tyr', ()=>{
   it('should work', function (done) {
     const client = new TyrDB({adapter});
 
-    client.on('ready', async ()=>{
+    client.once('ready', async ()=>{
       const dbName = 'test_db';
 
       expect(client.persistanceAdapter.store.databases).to.deep.equal({});
