@@ -20,6 +20,6 @@ module.exports = async function findCollection(tyrInstance, dbName, colName, opt
   col = new Collection(Object.assign(meta, { adapter: this, tyrInstance }, opts));
 
   return new Promise((resolve) => {
-    col.emitter.on('ready', () => resolve(col));
+    col.emitter.once('ready', () => resolve(col));
   });
 };
