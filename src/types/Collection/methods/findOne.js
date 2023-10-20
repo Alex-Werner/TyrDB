@@ -1,3 +1,3 @@
-module.exports = function findOne(selector = {}, opts = {}){
-  return this.find(selector, opts).limit(1);
-}
+module.exports = function findOne(selector = {}, opts = {}) {
+  return this.find(selector, opts)[0] || null;
+};
