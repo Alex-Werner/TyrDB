@@ -39,6 +39,10 @@ class TyrDB {
   on(eventName, callback) {
     return this.#emitter.on(eventName, callback);
   }
+
+  once(eventName, callback) {
+    return this.#emitter.once(eventName, callback);
+  }
   constructor(props = {}) {
     // if(typeof props === 'string'){
     //   props = JSON.parse(props);
