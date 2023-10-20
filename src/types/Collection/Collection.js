@@ -60,6 +60,7 @@ Collection.prototype.find = require('./methods/find')
 Collection.prototype.findOne = require('./methods/findOne')
 Collection.prototype.insert = require('./methods/insert')
 Collection.prototype.remove = require('./methods/remove')
+Collection.prototype['delete'] = require('./methods/remove')
 Collection.prototype.count = require('./methods/count');
 Collection.prototype.replace = require('./methods/replace')
 Collection.prototype.insertMany = require('./methods/insertMany')
