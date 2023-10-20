@@ -1,12 +1,14 @@
-const PersistanceAdapter = require('../../types/PersistanceAdapter/PersistanceAdapter')
+const PersistanceAdapter = require('../../types/PersistanceAdapter/PersistanceAdapter');
+
 class MemoryAdapter extends PersistanceAdapter {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.store = {
-      databases:{}
+      databases: {},
     };
   }
-};
+}
+
 MemoryAdapter.prototype.connectAdapter = require('./methods/connectAdapter');
 MemoryAdapter.prototype.createCollection = require('./methods/createCollection');
 MemoryAdapter.prototype.createDatabase = require('./methods/createDatabase');
@@ -17,4 +19,5 @@ MemoryAdapter.prototype.findOneDocumentInCollection = require('./methods/findOne
 MemoryAdapter.prototype.findOneDocumentInCollectionByObjectId = require('./methods/findOneDocumentInCollectionByObjectId');
 MemoryAdapter.prototype.insertOneDocumentToCollection = require('./methods/insertOneDocumentToCollection');
 MemoryAdapter.prototype.serializeMeta = require('./methods/serializeMeta');
+
 module.exports = MemoryAdapter;
