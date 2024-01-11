@@ -1,6 +1,5 @@
-const Database = require('../../../types/Database/Database');
-
-module.exports = async function findDatabase(tyrInstance, dbName, opts) {
+import Database from '../../../types/Database/Database.js';
+export default  async function findDatabase(tyrInstance, dbName, opts) {
   let db;
   if (!dbName) {
     throw new Error('Expected dbName');

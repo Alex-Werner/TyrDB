@@ -1,4 +1,4 @@
-module.exports = class PersistanceAdapter {
+export default  class PersistanceAdapter {
   #tyrInstance
   constructor(props){
     this.isConnected = false;

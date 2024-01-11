@@ -21,4 +21,4 @@ const array = {
     return index;
   }
 };
-module.exports = array;
+export default  array;

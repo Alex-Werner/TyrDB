@@ -1,2 +1,2 @@
-const TyrDB = require('./src/types/TyrDB/TyrDB');
-module.exports = TyrDB;
+import TyrDB from './src/types/TyrDB/TyrDB.js';
+export default TyrDB;

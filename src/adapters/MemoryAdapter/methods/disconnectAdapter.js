@@ -1,3 +1,3 @@
 async function disconnectAdapter(){
 }
-module.exports = disconnectAdapter
+export default  disconnectAdapter

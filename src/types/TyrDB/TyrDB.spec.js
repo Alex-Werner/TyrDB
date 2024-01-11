@@ -1,8 +1,18 @@
-const {expect} = require('chai');
-const TyrDBSpec = require('../../../index');
-const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
-const Event = require('../Event');
-const pkgVersion = require('../../../package.json').version;
+// const {expect} = require('chai');
+// const TyrDBSpec = require('../../../index');
+// const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
+// const Event = require('../Event');
+// const pkgVersion = require('../../../package.json').version;
+
+import {expect} from 'chai';
+import TyrDBSpec from '../../../index.js';
+import MemoryAdapter from '../../adapters/MemoryAdapter/MemoryAdapter.js';
+import Event from '../Event.js';
+
+import pkg from '../../../package.json' assert { type: "json" };
+const pkgVersion = pkg.version;
+
+
 const myData = {
   name: 'mydoc',
   buffer:Buffer.from('Hey!'),

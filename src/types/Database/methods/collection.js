@@ -1,5 +1,3 @@
-const Collection = require('../../Collection/Collection')
-
 async function collection(collectionName, opts){
   let coll = null;
   const instance = this.getTyrInstance();
@@ -16,4 +14,4 @@ async function collection(collectionName, opts){
   }
   return instance.databases[this.name].collections[collectionName].collection;
 };
-module.exports = collection;
+export default  collection;

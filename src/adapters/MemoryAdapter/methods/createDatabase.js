@@ -1,6 +1,6 @@
-const Database = require('../../../types/Database/Database');
+import Database from '../../../types/Database/Database.js';
 
-module.exports = async function createDatabase(tyrInstance, dbName){
+export default  async function createDatabase(tyrInstance, dbName){
     const db = new Database({name:dbName, adapter:this, tyrInstance});
 
     this.store.databases[dbName] = {

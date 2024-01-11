@@ -1,5 +1,13 @@
-const PersistanceAdapter = require('../../types/PersistanceAdapter/PersistanceAdapter');
-const {FSLock} = require('fslockjs');
+import {FSLock} from 'fslockjs';
+import PersistanceAdapter from '../../types/PersistanceAdapter/PersistanceAdapter.js';
+import serializeMeta from './methods/serializeMeta.js';
+import findCollection from './methods/findCollection.js';
+import findDatabase from './methods/findDatabase.js';
+import createDatabase from './methods/createDatabase.js';
+import createCollection from './methods/createCollection.js';
+import disconnectAdapter from './methods/disconnectAdapter.js';
+import connectAdapter from './methods/connectAdapter.js';
+
 class FsAdapter extends PersistanceAdapter {
   constructor(props){
     super(props);
@@ -9,12 +17,12 @@ class FsAdapter extends PersistanceAdapter {
     this.queue = new FSLock();
   }
 }
-FsAdapter.prototype.connectAdapter = require('./methods/connectAdapter');
-FsAdapter.prototype.disconnectAdapter = require('./methods/disconnectAdapter');
-FsAdapter.prototype.createCollection = require('./methods/createCollection');
-FsAdapter.prototype.createDatabase = require('./methods/createDatabase');
-FsAdapter.prototype.findDatabase = require('./methods/findDatabase');
-FsAdapter.prototype.findCollection = require('./methods/findCollection');
-FsAdapter.prototype.serializeMeta = require('./methods/serializeMeta');
-module.exports =  FsAdapter;
+FsAdapter.prototype.connectAdapter = connectAdapter;
+FsAdapter.prototype.disconnectAdapter = disconnectAdapter;
+FsAdapter.prototype.createCollection = createCollection;
+FsAdapter.prototype.createDatabase = createDatabase;
+FsAdapter.prototype.findDatabase = findDatabase;
+FsAdapter.prototype.findCollection = findCollection;
+FsAdapter.prototype.serializeMeta = serializeMeta;
+export default FsAdapter;
 

@@ -1,9 +1,10 @@
-const is = require('../../../../utils/is')
+// const is = require('../../../../utils/is')
+import is from '../../../../utils/is.js';
 const defaultProps = {
   revision: 0,
   version: 0
 }
-module.exports = function getMetadataFromProps(props){
+export default  function getMetadataFromProps(props){
   return {
     // Todo : We should use same date for ObjectID creation, we need our own ObjectID type...
     created :(!is.undef(props._meta) && !is.undef(props._meta.created)) ? props._meta.created : +new Date(),

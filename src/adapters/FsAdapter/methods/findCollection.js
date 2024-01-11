@@ -1,6 +1,7 @@
-const Collection = require('../../../types/Collection/Collection');
 
-module.exports = async function findCollection(tyrInstance, dbName, colName, opts) {
+import Collection from '../../../types/Collection/Collection.js';
+
+export default  async function findCollection(tyrInstance, dbName, colName, opts) {
   let col;
   if (!dbName) {
     throw new Error('Expected dbName');

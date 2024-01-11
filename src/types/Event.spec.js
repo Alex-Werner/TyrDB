@@ -1,5 +1,7 @@
-const { expect } = require('chai');
-const EventSpec = require('./Event');
+// const { expect } = require('chai');
+// const EventSpec = require('./Event');
+import { expect } from 'chai';
+import EventSpec from './Event.js';
 describe('Type - Event', () => {
   it('should work', function () {
     const event = new EventSpec('started');

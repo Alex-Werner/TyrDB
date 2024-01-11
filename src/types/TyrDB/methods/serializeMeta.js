@@ -1,4 +1,4 @@
-module.exports = function serializeMeta() {
+export default  function serializeMeta() {
   const {options, state, databases, databaseVersion} = this;
 
   const adapter = this.persistanceAdapter.serializeMeta();

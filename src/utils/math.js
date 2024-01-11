@@ -5,4 +5,4 @@ const math = {
     return (r * precision + min);
   }
 };
-module.exports = math;
+export default  math;

@@ -1,4 +1,4 @@
-module.exports = async function update(_update){
+export default  async function update(_update){
   Object.assign(this, _update)
   const result = [this];
   return {

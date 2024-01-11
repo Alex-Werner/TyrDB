@@ -1,6 +1,16 @@
-const {SBTree, adapters} = require('sbtree');
-const EventEmitter = require('eventemitter2').EventEmitter2;
-
+import { SBTree } from 'sbtree';
+import * as adapters from 'sbtree/src/adapters/index.js'
+import EventEmitter from 'eventemitter2';
+import exportFn from './methods/export.js';
+import get from './methods/get.js';
+import find from './methods/find.js';
+import findOne from './methods/findOne.js';
+import insert from './methods/insert.js';
+import remove from './methods/remove.js';
+import count from './methods/count.js';
+import insertOne from './methods/insertOne.js';
+import insertMany from './methods/insertMany.js';
+import replace from './methods/replace.js';
 class Collection {
   #adapter;
   #tyrInstance;
@@ -54,15 +64,15 @@ class Collection {
     return this.#tyrInstance;
   }
 };
-Collection.prototype.export = require('./methods/export')
-Collection.prototype.get = require('./methods/get')
-Collection.prototype.find = require('./methods/find')
-Collection.prototype.findOne = require('./methods/findOne')
-Collection.prototype.insert = require('./methods/insert')
-Collection.prototype.remove = require('./methods/remove')
-Collection.prototype['delete'] = require('./methods/remove')
-Collection.prototype.count = require('./methods/count');
-Collection.prototype.replace = require('./methods/replace')
-Collection.prototype.insertMany = require('./methods/insertMany')
-Collection.prototype.insertOne = require('./methods/insertOne')
-module.exports = Collection;
+Collection.prototype.export = exportFn;
+Collection.prototype.get = get;
+Collection.prototype.find = find;
+Collection.prototype.findOne = findOne;
+Collection.prototype.insert = insert
+Collection.prototype.remove = remove;
+Collection.prototype['delete'] = remove;
+Collection.prototype.count = count;
+Collection.prototype.replace = replace;
+Collection.prototype.insertMany = insertMany;
+Collection.prototype.insertOne = insertOne;
+export default  Collection;

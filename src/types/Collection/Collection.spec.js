@@ -1,7 +1,7 @@
-const { expect } = require('chai');
+import { expect } from 'chai';
+import CollectionSpec from './Collection.js';
+import {MemoryAdapter} from '../../../adapters.js'
 
-const CollectionSpec = require('./Collection');
-const {MemoryAdapter} = require('../../../adapters')
 describe('Type - Collection', () => {
   it('should work', function () {
     const fakeTyrInstance = {

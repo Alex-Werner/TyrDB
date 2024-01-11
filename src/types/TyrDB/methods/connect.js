@@ -1,6 +1,5 @@
-const Event = require('../../Event');
-
-module.exports = async function connect() {
+import Event from '../../Event.js';
+export default  async function connect() {
   if(!this.state.isConnected && !this.state.isConnecting){
     this.state.isConnecting = true;
 

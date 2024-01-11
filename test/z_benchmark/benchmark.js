@@ -1,9 +1,7 @@
-const {expect} = require('chai');
-const TyrDB = require('../../index');
-const fakeData = require('../fixtures/users')
-const {Timer} = require('../../src/utils/time');
-const {version} = require('../../package.json');
-
+import TyrDB from '../../index.js';
+import fakeData from '../fixtures/users.json' assert { type: "json" };
+import {Timer} from '../../src/utils/time.js';
+import {version} from '../../package.json' assert { type: "json" };
 
 let tyrdb;
 let db;

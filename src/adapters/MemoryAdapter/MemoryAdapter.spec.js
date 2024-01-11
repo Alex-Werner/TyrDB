@@ -1,7 +1,6 @@
-const { expect } = require('chai');
-const TyrDB = require('../../../index');
-const MemoryAdapterSpec = require('./MemoryAdapter');
-
+import MemoryAdapterSpec from './MemoryAdapter.js';
+import { expect } from 'chai';
+import TyrDB from '../../../index.js'
 describe('MemoryAdapter', () => {
 
 });
