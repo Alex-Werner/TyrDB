@@ -1,6 +1,6 @@
-const Collection = require('../../../types/Collection/Collection');
+import Collection from '../../../types/Collection/Collection.js';
 
-module.exports = async function createCollection(tyrInstance, dbName, colName, opts) {
+export default  async function createCollection(tyrInstance, dbName, colName, opts) {
   const collection = new Collection({
     name: colName, adapter: this, tyrInstance, parentDatabaseName: dbName, ...opts,
   });

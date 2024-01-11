@@ -1,7 +1,9 @@
-const {expect} = require('chai');
-const TyrDB = require('../../index');
-const assets = require('../fixtures/assets.json');
-
+// const {expect} = require('chai');
+// const TyrDB = require('../../index');
+// const assets = require('../fixtures/assets.json');
+import { expect } from 'chai';
+import TyrDB from '../../index.js';
+import assets from '../fixtures/assets.json' assert { type: "json" };
 describe('E2E - Classic UseCase', function suite() {
   describe('Asset DB', async() => {
     const shiftedUsers = [];

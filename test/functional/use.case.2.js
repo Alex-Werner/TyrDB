@@ -1,7 +1,6 @@
-const {expect} = require('chai');
-const TyrDB = require('../../index');
-const dataset = require('../fixtures/dataset.json');
-
+import { expect } from 'chai';
+import TyrDB from '../../index.js';
+import dataset from '../fixtures/dataset.json' assert { type: "json" };
 describe('E2E - More complete useCase', function suite() {
   let tyrdb = new TyrDB();
   let db;

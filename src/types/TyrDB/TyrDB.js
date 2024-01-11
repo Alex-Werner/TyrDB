@@ -1,10 +1,15 @@
-const MemoryAdapter = require('../../adapters/MemoryAdapter/MemoryAdapter');
-const FsAdapter = require('../../adapters/FsAdapter/FsAdapter');
-const EventEmitter = require('eventemitter2').EventEmitter2;
-const Event = require('../Event');
-const pkgVersion = require('../../../package.json').version;
-
-const is = require('../../utils/is')
+import MemoryAdapter from '../../adapters/MemoryAdapter/MemoryAdapter.js';
+import FsAdapter from '../../adapters/FsAdapter/FsAdapter.js';
+import EventEmitter from 'eventemitter2';
+import is from '../../utils/is.js';
+import Event from '../Event.js';
+import pkg from '../../../package.json' assert { type: "json" };
+import serializeMeta from './methods/serializeMeta.js';
+import db from './methods/db.js';
+import initialize from './methods/initialize.js';
+import close from './methods/close.js';
+import connect from './methods/connect.js';
+const pkgVersion = pkg.version;
 const defaultProps = {
   options:{
     path: '.db',
@@ -73,9 +78,9 @@ class TyrDB {
     return this.#emitter;
   }
 };
-TyrDB.prototype.close = require('./methods/close')
-TyrDB.prototype.connect = require('./methods/connect')
-TyrDB.prototype.db = require('./methods/db')
-TyrDB.prototype.initialize = require('./methods/initialize')
-TyrDB.prototype.serializeMeta = require('./methods/serializeMeta')
-module.exports = TyrDB;
+TyrDB.prototype.close = close;
+TyrDB.prototype.connect = connect
+TyrDB.prototype.db = db
+TyrDB.prototype.initialize = initialize
+TyrDB.prototype.serializeMeta = serializeMeta
+export default  TyrDB;

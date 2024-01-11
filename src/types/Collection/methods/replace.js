@@ -1,3 +1,3 @@
-module.exports = async function replace(document){
+export default  async function replace(document){
   return await this.getTree().replaceDocuments(document);
 }

@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-
+// const crypto = require('crypto');
+import crypto from 'crypto';
 function hash(alg, data) {
   return crypto.createHash(alg).update(data).digest();
 }
@@ -19,7 +19,7 @@ function insecureRandomBytes(size) {
 function getRandomBytes(){
   let randomBytes = null;
   try {
-    randomBytes = require('crypto').randomBytes;
+    randomBytes = crypto.randomBytes;
   } catch (e) {
     // keep the fallback
   }
@@ -34,7 +34,7 @@ function browserRandomBytes(){
 }
 const isWindowContext = (typeof window !== 'undefined' && window.crypto && window.crypto.getRandomValues);
 
-module.exports = {
+export default  {
   hash,
   insecureRandomBytes,
   doubleSha256,

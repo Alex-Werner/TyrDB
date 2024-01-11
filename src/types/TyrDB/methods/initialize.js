@@ -1,7 +1,8 @@
-const Event = require('../../Event')
-module.exports = async function initialize() {
+import Event from '../../Event.js';
+
+export default async function initialize() {
   if (this.options.autoConnect) {
-    await this.connect()
+    await this.connect();
   }
   this.emit(new Event('initialized'));
 }

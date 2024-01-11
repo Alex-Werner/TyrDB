@@ -1,4 +1,4 @@
-module.exports = async function insertOne(payload){
+export default  async function insertOne(payload){
   const result = await this.getTree().insertDocuments(payload);
 
   return {

@@ -1,5 +1,5 @@
-const Event = require('../../Event');
-module.exports = async function close() {
+import Event from '../../Event.js';
+export default  async function close() {
     if(this.state.isConnected){
         await this.persistanceAdapter.disconnectAdapter(this);
 

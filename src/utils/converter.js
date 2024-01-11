@@ -26,4 +26,4 @@ const converter = {
     }
   }
 }
-module.exports = converter;
+export default  converter;

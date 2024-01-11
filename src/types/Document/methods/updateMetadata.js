@@ -1,7 +1,6 @@
-const each = require('lodash.foreach');
-const converter = require('../../../utils/converter');
-
-module.exports = async function updateMetadata(){
+import each from 'lodash.foreach';
+import converter from '../../../utils/converter.js';
+export default  async function updateMetadata(){
   const {data} = this;
 
   const fields = [];

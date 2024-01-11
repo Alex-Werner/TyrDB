@@ -5,4 +5,4 @@ class NotImplementedError extends Error {
     Error.captureStackTrace(this, this.constructor);
   }
 };
-module.exports = NotImplementedError
+export default  NotImplementedError

@@ -1,4 +1,4 @@
-module.exports = async function insert(payload){
+export default  async function insert(payload){
   if(Array.isArray(payload)){
     return this.insertMany(payload);
   }

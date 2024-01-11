@@ -6,4 +6,4 @@ async function list(){
   }
   return Object.keys(instance.databases[this.name].collections);
 };
-module.exports = list;
+export default  list;

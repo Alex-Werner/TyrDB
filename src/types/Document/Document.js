@@ -1,6 +1,10 @@
-const ObjectID = require("mongo-objectid");
-const clone = require("lodash.clone");
-const cleanPrivateProps = require('./methods/private/cleanPrivateProps');
+import ObjectID from 'mongo-objectid';
+import clone from 'lodash.clone';
+import cleanPrivateProps from './methods/private/cleanPrivateProps.js';
+import serialize from './methods/serialize.js';
+import replace from './methods/replace.js';
+import update from './methods/update.js';
+import exportFn from './methods/export.js';
 
 class Document {
   constructor(props = {}){
@@ -10,8 +14,8 @@ class Document {
     }
   }
 };
-Document.prototype.export = require('./methods/export');
-Document.prototype.serialize = require('./methods/serialize');
-Document.prototype.update = require('./methods/update');
-Document.prototype.replace = require('./methods/replace');
-module.exports = Document;
+Document.prototype.export = exportFn;
+Document.prototype.serialize = serialize;
+Document.prototype.update = update;
+Document.prototype.replace = replace;
+export default Document;

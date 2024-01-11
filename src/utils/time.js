@@ -23,4 +23,4 @@ class Timer {
 const time = {
   Timer
 };
-module.exports = time;
+export default  time;

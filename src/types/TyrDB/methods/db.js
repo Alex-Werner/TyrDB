@@ -1,4 +1,4 @@
-module.exports = async function db(dbName) {
+export default  async function db(dbName) {
   if (!this.databases[dbName]) {
     let db = await this.persistanceAdapter.findOrCreateDatabase(this, dbName)
     this.databases[db.name] = {
