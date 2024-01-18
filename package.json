@@ -41,7 +41,7 @@
   "homepage": "https://github.com/Alex-Werner/TyrDB#readme",
   "dependencies": {
     "eventemitter2": "^6.4.9",
-    "fslockjs": "^2.0.2",
+    "fslockjs": "^2.0.3",
     "lodash.clone": "^4.5.0",
     "lodash.find": "^4.6.0",
     "lodash.foreach": "^4.5.0",
